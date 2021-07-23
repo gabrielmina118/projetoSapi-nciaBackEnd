@@ -29,7 +29,11 @@ export class MySqlSetup extends BaseDatabase {
             CREATE TABLE IF NOT EXISTS ${BaseDatabase.COURSE_TABLE} (
                 id int primary key auto_increment ,
                 name varchar(255) not null,
-                date date not null
+                speaker varchar(255) not null,
+                profession varchar(255) not null,
+                bio varchar(255) not null,
+                date date not null,
+                hour varchar(10) not null,
             )
         `)
 
