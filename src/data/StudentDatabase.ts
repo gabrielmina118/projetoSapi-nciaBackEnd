@@ -14,6 +14,7 @@ export class StudentDatabase extends BaseDataBase {
    }
 
    public async createStudent(student: Student): Promise<void> {
+      console.log("Bando de dados",student.getId())
       try {
          await BaseDataBase.connection.raw(`
             INSERT INTO ${BaseDatabase.STUDENT_TABLE}
@@ -34,7 +35,7 @@ export class StudentDatabase extends BaseDataBase {
             '${student.getInternet()}',
             '${student.getAccess()}',
             '${student.getReceive()}',
-            '${student.getPermission()}',
+            '${student.getPermission()}'
             )`
          );
       } catch (error) {
