@@ -5,8 +5,8 @@ import { StudentDatabase } from "../data/StudentDatabase";
 
 
 const studentBusiness =
- new StudentBusiness(new IdGenerator(),
-                     new StudentDatabase());
+   new StudentBusiness(new IdGenerator(),
+      new StudentDatabase());
 
 export class StudentController {
 
