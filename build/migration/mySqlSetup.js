@@ -44,6 +44,11 @@ class MySqlSetup extends BaseDatabase_1.default {
                 id int primary key auto_increment ,
                 name varchar(255) not null,
                 date date not null
+                speaker varchar(255) not null,
+                profession varchar(255) not null,
+                bio varchar(255) not null,
+                date date not null,
+                hour varchar(10) not null
             )
         `);
                 yield BaseDatabase_1.default.connection.raw(`

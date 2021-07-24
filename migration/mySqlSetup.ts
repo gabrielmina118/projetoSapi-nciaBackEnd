@@ -1,9 +1,9 @@
-import  BaseDatabase from "../src/data/BaseDatabase"
+import BaseDatabase from "../src/data/BaseDatabase"
 
-export class MySqlSetup extends BaseDatabase{
+export class MySqlSetup extends BaseDatabase {
     public async createTable(): Promise<void> {
-    try {
-        await BaseDatabase.connection.raw(`
+        try {
+            await BaseDatabase.connection.raw(`
             CREATE TABLE IF NOT EXISTS ${BaseDatabase.STUDENT_TABLE} (
                 id varchar(255) not null primary key,
                 name varchar(255) not null,
@@ -25,15 +25,19 @@ export class MySqlSetup extends BaseDatabase{
             )
         `)
 
-        await BaseDatabase.connection.raw(`
+            await BaseDatabase.connection.raw(`
             CREATE TABLE IF NOT EXISTS ${BaseDatabase.COURSE_TABLE} (
                 id int primary key auto_increment ,
                 name varchar(255) not null,
-                date date not null
+                speaker varchar(255) not null,
+                profession varchar(255) not null,
+                bio varchar(255) not null,
+                date date not null,
+                hour varchar(10) not null
             )
         `)
 
-        await BaseDatabase.connection.raw(`
+            await BaseDatabase.connection.raw(`
             CREATE TABLE IF NOT EXISTS ${BaseDatabase.STUDENT_COURSE_TABLE} (
                 id_student varchar(255) not null ,
                 id_course int not null,
@@ -42,12 +46,12 @@ export class MySqlSetup extends BaseDatabase{
             )
         `)
 
-        console.log("MySql setup completed!")
-        BaseDatabase.destroyConnection()
+            console.log("MySql setup completed!")
+            BaseDatabase.destroyConnection()
 
         } catch (error) {
             console.log(error)
-        } 
+        }
     }
 }
 
