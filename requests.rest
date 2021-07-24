@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
     "name": "fulano",
-    "email": "fulano@email.com",
+    "email": "fulano2@email.com",
     "phone": "99123456789",
     "age": 21,
     "neighbor": "bairro A",
@@ -17,6 +17,14 @@ Content-Type: application/json
     "suburb": "prefiroNaoResponder",
     "internet": "naoSei",
     "access": "computador",
-    "receive": false,
-    "permission": true
+    "receive": 0,
+    "permission": 1
+}
+
+### Send Volunteer Data To Email
+POST http://localhost:3003/volunteers/datatoemail
+Content-Type: application/json
+
+{
+    "name": "Fulano"
 }

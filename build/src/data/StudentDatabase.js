@@ -23,6 +23,7 @@ class StudentDatabase extends BaseDatabase_1.default {
     }
     createStudent(student) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log("Bando de dados", student.getId());
             try {
                 yield BaseDatabase_1.default.connection.raw(`
             INSERT INTO ${BaseDatabase_2.default.STUDENT_TABLE}
@@ -43,7 +44,7 @@ class StudentDatabase extends BaseDatabase_1.default {
             '${student.getInternet()}',
             '${student.getAccess()}',
             '${student.getReceive()}',
-            '${student.getPermission()}',
+            '${student.getPermission()}'
             )`);
             }
             catch (error) {
