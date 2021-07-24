@@ -19,7 +19,7 @@ class StudentBusiness {
         this.idGenerator = idGenerator;
         this.studentDatabase = studentDatabase;
     }
-    createStudent(name, email, phone, age, neighbor, city, scholarity, gender, lgbt, trans, race, suburb, internet, access, receive, permission) {
+    createStudent(name, email, phone, age, neighbor, city, scholarity, gender, lgbt, trans, race, suburb, internet, access, receive, permission, courses) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 if (!name || !email || !phone || !age || !neighbor || !city || !scholarity || !age || !gender ||
@@ -30,13 +30,35 @@ class StudentBusiness {
                     throw new BaseError_1.BaseError("All addresses must have an @", 422);
                 }
                 const id = this.idGenerator.generate();
-                yield this.studentDatabase.createStudent(new Student_1.Student(id, name, email, phone, age, neighbor, city, scholarity, gender, lgbt, trans, race, suburb, internet, access, receive, permission));
+                yield this.studentDatabase.createStudent(new Student_1.Student(id, name, email, phone, age, neighbor, city, scholarity, gender, lgbt, trans, race, suburb, internet, access, receive, permission, courses));
                 return { message: "Student created" };
             }
             catch (error) {
                 if (error.message.includes("email")) {
                     throw new BaseError_1.BaseError("Email already in use", 409);
                 }
+                throw new BaseError_1.BaseError(error.statusCode, error.message);
+            }
+        });
+    }
+    getAllStudent() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const result = yield this.studentDatabase.getAllStudent();
+                return { result };
+            }
+            catch (error) {
+                throw new BaseError_1.BaseError(error.statusCode, error.message);
+            }
+        });
+    }
+    getStudentById(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const result = yield this.studentDatabase.getStudentById(id);
+                return { result };
+            }
+            catch (error) {
                 throw new BaseError_1.BaseError(error.statusCode, error.message);
             }
         });

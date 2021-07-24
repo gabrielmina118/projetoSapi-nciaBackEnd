@@ -18,7 +18,8 @@ Content-Type: application/json
     "internet": "naoSei",
     "access": "computador",
     "receive": 0,
-    "permission": 1
+    "permission": 1,
+    "courses": [1,2,3]
 }
 
 ### Send Volunteer Data To Email
@@ -28,3 +29,10 @@ Content-Type: application/json
 {
     "name": "Fulano"
 }
+
+### Get All Students
+GET http://localhost:3003/students/all
+
+
+### Get Student By Id
+GET http://localhost:3003/students/profile/cfee2928-cb17-451d-b8d8-c2e59f379d38

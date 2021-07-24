@@ -16,7 +16,8 @@ export class Student {
     private internet: string,
     private access: string,
     private receive: number,
-    private permission: number
+    private permission: number,
+    private courses: number[]
   ) {}
 
   public getId(): string {
@@ -85,6 +86,10 @@ export class Student {
 
   public getPermission(): number {
     return this.permission;
+  }
+
+  public getCourses(): number[] {
+    return this.courses;
   }
 }
 
