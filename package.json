@@ -33,6 +33,7 @@
     "moment": "^2.27.0",
     "mysql": "^2.18.1",
     "nodemailer": "^6.6.2",
+    "puppeteer": "^10.1.0",
     "ts-jest": "^26.1.0",
     "ts-node": "^8.10.2",
     "ts-node-dev": "^1.1.8",

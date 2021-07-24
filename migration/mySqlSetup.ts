@@ -33,7 +33,7 @@ export class MySqlSetup extends BaseDatabase {
                 profession varchar(255) not null,
                 bio varchar(255) not null,
                 date date not null,
-                hour varchar(10) not null,
+                hour varchar(10) not null
             )
         `)
 
