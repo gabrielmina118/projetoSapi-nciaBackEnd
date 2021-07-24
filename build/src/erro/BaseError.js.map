@@ -1,1 +1,5 @@
-{"version":3,"file":"BaseError.js","sourceRoot":"","sources":["../../../src/erro/BaseError.ts"],"names":[],"mappings":";;;AAAA,MAAsB,SAAU,SAAQ,KAAK;IACzC,YAAY,OAAc,EAAQ,UAAiB;QAC/C,KAAK,CAAC,OAAO,CAAC,CAAA;QADgB,eAAU,GAAV,UAAU,CAAO;IAEnD,CAAC;CACJ;AAJD,8BAIC"}
+
+{"version":3,"file":"BaseError.js","sourceRoot":"","sources":["../../../src/erro/BaseError.ts"],"names":[],"mappings":";;;AAAA,MAAa,SAAU,SAAQ,KAAK;IAChC,YAAY,OAAc,EAAQ,UAAiB;QAC/C,KAAK,CAAC,OAAO,CAAC,CAAA;QADgB,eAAU,GAAV,UAAU,CAAO;IAEnD,CAAC;CACJ;AAJD,8BAIC"}
+
+
+

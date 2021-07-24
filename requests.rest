@@ -1,0 +1,22 @@
+### Create Student
+POST http://localhost:3003/students/create
+Content-Type: application/json
+
+{
+    "name": "fulano",
+    "email": "fulano@email.com",
+    "phone": "99123456789",
+    "age": 21,
+    "neighbor": "bairro A",
+    "city": "cidade B",
+    "scholarity": "EFI",
+    "gender": "homem",
+    "lgbt": "sim",
+    "trans": "nao",
+    "race": "indigena",
+    "suburb": "prefiroNaoResponder",
+    "internet": "naoSei",
+    "access": "computador",
+    "receive": false,
+    "permission": true
+}
