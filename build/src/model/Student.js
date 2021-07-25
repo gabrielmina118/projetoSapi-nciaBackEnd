@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Student = void 0;
 class Student {
-    constructor(id, name, email, phone, age, neighbor, city, scholarity, gender, lgbt, trans, race, suburb, internet, access, receive, permission) {
+    constructor(id, name, email, phone, age, neighbor, city, scholarity, gender, lgbt, trans, race, suburb, internet, access, receive, permission, courses) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -20,6 +20,7 @@ class Student {
         this.access = access;
         this.receive = receive;
         this.permission = permission;
+        this.courses = courses;
     }
     getId() {
         return this.id;
@@ -71,6 +72,9 @@ class Student {
     }
     getPermission() {
         return this.permission;
+    }
+    getCourses() {
+        return this.courses;
     }
 }
 exports.Student = Student;

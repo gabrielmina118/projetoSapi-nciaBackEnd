@@ -26,7 +26,8 @@ export class StudentBusiness {
       internet: string,
       access: string,
       receive: number,
-      permission: number
+      permission: number,
+      courses: number[]
    ) {
       try {
          if (!name || !email || !phone || !age || !neighbor || !city || !scholarity || !age || !gender ||
@@ -42,7 +43,7 @@ export class StudentBusiness {
 
          await this.studentDatabase.createStudent(
             new Student(id, name, email, phone, age, neighbor, city, scholarity, gender, lgbt,
-                        trans, race, suburb, internet, access, receive, permission)
+                        trans, race, suburb, internet, access, receive, permission, courses)
          );
 
          return { message: "Student created" };
@@ -56,6 +57,25 @@ export class StudentBusiness {
 
    }
 
+   public async getAllStudent() {
+      try {
+         const result = await this.studentDatabase.getAllStudent();
+
+         return { result };
+      } catch (error) {
+         throw new BaseError(error.statusCode, error.message)
+      }
+   }
+
+   public async getStudentById(id:string) {
+      try {
+         const result = await this.studentDatabase.getStudentById(id);
+
+         return { result };
+      } catch (error) {
+         throw new BaseError(error.statusCode, error.message)
+      }
+   }
 }
 
 export default new StudentBusiness(new IdGenerator(), new StudentDatabase())

@@ -18,8 +18,33 @@ class StudentController {
     createStudent(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { name, email, phone, age, neighbor, city, scholarity, gender, lgbt, trans, race, suburb, internet, access, receive, permission } = req.body;
-                const result = yield studentBusiness.createStudent(name, email, phone, age, neighbor, city, scholarity, gender, lgbt, trans, race, suburb, internet, access, receive, permission);
+                const { name, email, phone, age, neighbor, city, scholarity, gender, lgbt, trans, race, suburb, internet, access, receive, permission, courses } = req.body;
+                const result = yield studentBusiness.createStudent(name, email, phone, age, neighbor, city, scholarity, gender, lgbt, trans, race, suburb, internet, access, receive, permission, courses);
+                res.status(200).send(result);
+            }
+            catch (error) {
+                const { statusCode, message } = error;
+                res.status(statusCode || 400).send({ message });
+            }
+        });
+    }
+    getAllStudent(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const result = yield studentBusiness.getAllStudent();
+                res.status(200).send(result);
+            }
+            catch (error) {
+                const { statusCode, message } = error;
+                res.status(statusCode || 400).send({ message });
+            }
+        });
+    }
+    getStudentById(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const { id } = req.params;
+                const result = yield studentBusiness.getStudentById(id);
                 res.status(200).send(result);
             }
             catch (error) {

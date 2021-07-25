@@ -19,7 +19,7 @@ const BaseDatabase_2 = __importDefault(require("./BaseDatabase"));
 class StudentDatabase extends BaseDatabase_1.default {
     toModel(dbModel) {
         return (dbModel &&
-            new Student_1.Student(dbModel.id, dbModel.name, dbModel.email, dbModel.phone, dbModel.age, dbModel.neighbor, dbModel.city, dbModel.scholarity, dbModel.gender, dbModel.lgbt, dbModel.trans, dbModel.race, dbModel.suburb, dbModel.internet, dbModel.access, dbModel.receive, dbModel.permission));
+            new Student_1.Student(dbModel.id, dbModel.name, dbModel.email, dbModel.phone, dbModel.age, dbModel.neighbor, dbModel.city, dbModel.scholarity, dbModel.gender, dbModel.lgbt, dbModel.trans, dbModel.race, dbModel.suburb, dbModel.internet, dbModel.access, dbModel.receive, dbModel.permission, dbModel.courses));
     }
     createStudent(student) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -45,7 +45,49 @@ class StudentDatabase extends BaseDatabase_1.default {
             '${student.getAccess()}',
             '${student.getReceive()}',
             '${student.getPermission()}'
-            )`);
+            )
+         `);
+                for (let i = 0; i < student.getCourses().length; i++) {
+                    yield BaseDatabase_1.default.connection.raw(`
+               INSERT INTO ${BaseDatabase_2.default.STUDENT_COURSE_TABLE}
+               VALUES (
+                  '${student.getId()}',
+                  '${student.getCourses()[i]}',
+               )
+            `);
+                }
+            }
+            catch (error) {
+                console.log(error);
+                throw new Error(error.sqlMessage || error.message);
+            }
+        });
+    }
+    getAllStudent() {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const result = yield BaseDatabase_1.default.connection.raw(`
+            SELECT sap_course.name as CourseName , sap_student.name as StudentName, sap_student.email, sap_student.phone, sap_student.age FROM sap_student_course INNER JOIN sap_student
+            ON sap_student_course.id_student = sap_student.id
+            INNER JOIN sap_course 
+            ON sap_student_course.id_course = sap_course.id;
+         `);
+                return result[0];
+            }
+            catch (error) {
+                console.log(error);
+                throw new Error(error.sqlMessage || error.message);
+            }
+        });
+    }
+    getStudentById(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const result = yield BaseDatabase_1.default.connection.raw(`
+            SELECT * FROM sap_student
+            WHERE id= ${id};
+         `);
+                return result[0];
             }
             catch (error) {
                 console.log(error);
