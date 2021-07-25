@@ -2,8 +2,9 @@ import { BaseError } from "../erro/BaseError";
 import { Student } from "../model/Student";
 import { StudentDatabase } from "../data/StudentDatabase";
 import { IdGenerator } from "../services/IdGenerator";
+import sendEmailToNewPass from "./EmailBusiness";
 
-export class StudentBusiness {
+class StudentBusiness {
 
    constructor(
       private idGenerator: IdGenerator,
@@ -30,14 +31,14 @@ export class StudentBusiness {
       courses: number[]
    ) {
       try {
-         if (!name || !email || !phone || !age || !neighbor || !city || !scholarity || !age || !gender ||
-             !lgbt || !trans || !race || !suburb || !internet || !access || !receive || !permission) {
-            throw new BaseError("Missing input", 422);
-         }
+         // if (!name || !email || !phone || !age || !neighbor || !city || !scholarity || !age || !gender ||
+         //     !lgbt || !trans || !race || !suburb || !internet || !access || !receive || !permission) {
+         //    throw new BaseError("Missing input", 422);
+         // }
 
-         if (email.indexOf("@") === -1) {
-            throw new BaseError("All addresses must have an @", 422);
-         }
+         // if (email.indexOf("@") === -1) {
+         //    throw new BaseError("All addresses must have an @", 422);
+         // }
 
          const id = this.idGenerator.generate();
 
@@ -45,6 +46,7 @@ export class StudentBusiness {
             new Student(id, name, email, phone, age, neighbor, city, scholarity, gender, lgbt,
                         trans, race, suburb, internet, access, receive, permission, courses)
          );
+
 
          return { message: "Student created" };
       } catch (error) {
@@ -78,4 +80,4 @@ export class StudentBusiness {
    }
 }
 
-export default new StudentBusiness(new IdGenerator(), new StudentDatabase())
+export default new StudentBusiness(new IdGenerator, new StudentDatabase)

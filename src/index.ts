@@ -1,11 +1,10 @@
 import express from 'express'
 import cors from "cors";
 import { studentRouter } from "./router/StudentRouter";
-import { courseRouter } from './routes/courseRouter';
+import { courseRouter } from './router/courseRouter';
 import { volunteerRouter } from './router/VolunteerRouter';
 
 const app = express();
-
 
 app.use(express.json());
 app.use(cors());

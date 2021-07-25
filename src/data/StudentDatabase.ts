@@ -1,7 +1,7 @@
 import BaseDataBase from "./BaseDatabase";
 import { Student } from "../model/Student";
 import BaseDatabase from "./BaseDatabase";
-import { CourseBussines } from "../bussines/Course/CourseBussines";
+import { CourseBussines } from "../business/CourseBussines";
 
 export class StudentDatabase extends BaseDataBase {
 
@@ -15,7 +15,7 @@ export class StudentDatabase extends BaseDataBase {
    }
 
    public async createStudent(student: Student): Promise<void> {
-      console.log("Bando de dados",student.getId())
+      
       try {
          await BaseDataBase.connection.raw(`
             INSERT INTO ${BaseDatabase.STUDENT_TABLE}

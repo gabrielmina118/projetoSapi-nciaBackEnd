@@ -1,4 +1,4 @@
-import { CourseDatabase } from "../../data/CourseDatabase";
+import { CourseDatabase } from "../data/CourseDatabase";
 
 class CourseBussines {
 
