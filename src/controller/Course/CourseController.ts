@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CourseBussines } from "../../bussines/Course/CourseBussines";
+import { CourseBussines } from "../../business/CourseBussines";
 import BaseDataBase from "../../data/BaseDatabase";
 
 

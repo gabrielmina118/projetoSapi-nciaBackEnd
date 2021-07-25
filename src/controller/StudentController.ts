@@ -1,23 +1,19 @@
 import { Request, Response } from "express";
-import { StudentBusiness } from "../business/StudentBusiness";
-import { IdGenerator } from "../services/IdGenerator";
-import { StudentDatabase } from "../data/StudentDatabase";
+import StudentBusiness from "../business/StudentBusiness";
 
 
-const studentBusiness =
-   new StudentBusiness(new IdGenerator(),
-      new StudentDatabase());
-
-export class StudentController {
+ class StudentController {
 
    public async createStudent(req: Request, res: Response) {
       try {
          const { name, email, phone, age, neighbor, city, scholarity, gender, lgbt,
             trans, race, suburb, internet, access, receive, permission, courses } = req.body
-         const result = await studentBusiness.createStudent(
+
+         const result = await StudentBusiness.createStudent(
             name, email, phone, age, neighbor, city, scholarity, gender, lgbt,
             trans, race, suburb, internet, access, receive, permission, courses
          );
+         
          res.status(200).send(result);
       } catch (error) {
          const { statusCode, message } = error
@@ -27,7 +23,7 @@ export class StudentController {
 
    public async getAllStudent(req: Request, res: Response) {
       try {
-         const result = await studentBusiness.getAllStudent();
+         const result = await StudentBusiness.getAllStudent();
          res.status(200).send(result);
       } catch (error) {
          const { statusCode, message } = error
@@ -38,7 +34,7 @@ export class StudentController {
    public async getStudentById(req: Request, res: Response) {
       try {
          const {id} = req.params
-         const result = await studentBusiness.getStudentById(id);
+         const result = await StudentBusiness.getStudentById(id);
          res.status(200).send(result);
       } catch (error) {
          const { statusCode, message } = error
@@ -48,4 +44,4 @@ export class StudentController {
 
 }
 
-export default new StudentController()
+export default StudentController

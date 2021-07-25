@@ -1,6 +1,8 @@
 import express from "express";
-import { VolunteerBusiness } from "../business/VolunteerBusiness";
+import { VolunteerController } from "../controller/VolunteerController";
 
 export const volunteerRouter = express.Router();
 
-volunteerRouter.post("/datatoemail", VolunteerBusiness);
+const voulunteerController = new VolunteerController();
+
+volunteerRouter.post("/datatoemail", voulunteerController.sendMail);
