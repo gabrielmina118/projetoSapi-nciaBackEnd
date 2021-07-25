@@ -12,20 +12,35 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CourseDatabase = void 0;
-const BaseDatabase_1 = __importDefault(require("./BaseDatabase"));
-class CourseDatabase extends BaseDatabase_1.default {
-    getAllCourse() {
-        return __awaiter(this, void 0, void 0, function* () {
-            try {
-                const result = yield BaseDatabase_1.default.connection.select("*").from(BaseDatabase_1.default.COURSE_TABLE);
-                return result;
+exports.writeEmail = exports.config = void 0;
+const nodemailer_1 = __importDefault(require("nodemailer"));
+exports.config = {
+    host: "smtp.mailtrap.io",
+    port: 2525,
+    auth: {
+        user: "bf68b5de21463a",
+        pass: "37a302f502122a"
+    }
+};
+let transporter = nodemailer_1.default.createTransport(exports.config);
+function writeEmail(mail) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let mailContent = {
+            from: mail.from,
+            to: mail.to,
+            subject: mail.subject,
+            text: mail.text,
+            html: mail.html
+        };
+        transporter.sendMail(mailContent, (error, info) => {
+            if (error) {
+                throw new Error(error.message);
             }
-            catch (error) {
-                throw new Error(error.sqlMessage || error.message);
+            else {
+                console.log(`E-mail enviado para ${mailContent.to}!`);
             }
         });
-    }
+    });
 }
-exports.CourseDatabase = CourseDatabase;
-//# sourceMappingURL=CourseDatabase.js.map
+exports.writeEmail = writeEmail;
+//# sourceMappingURL=mailer.js.map
