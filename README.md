@@ -5,7 +5,8 @@
 https://github.com/gabrielmina118/projetoSapi-ncia-FrontEnd
 
 ## Primeiros Passos
-Clonar este repositório
+Clonar este repositório.
+
 Executar `npm install` para adicionar as dependências.
 
 Criar um arquivo .env na raiz do projeto e preencher as chaves (variáveis de ambiente) a seguir com os valores apropriados:
