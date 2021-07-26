@@ -9,7 +9,7 @@ Clonar este repositório.
 
 Executar `npm install` para adicionar as dependências.
 
-Criar um arquivo .env na raiz do projeto e preencher as chaves (variáveis de ambiente) a seguir com os valores apropriados:
+Criar um arquivo `.env` na raiz do projeto e preencher as chaves (variáveis de ambiente) a seguir com os valores apropriados:
 
 DB_HOST =
 
