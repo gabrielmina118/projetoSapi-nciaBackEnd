@@ -1,6 +1,5 @@
 # Projeto Back-end da ONG Sapiência - ProviHack4Good (Julho/2021)
-Sobre
-Lorem Ipsum
+
 
 ## Link do repositório do Front-end
 https://github.com/gabrielmina118/projetoSapi-ncia-FrontEnd
