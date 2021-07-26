@@ -13,7 +13,7 @@ export default async function sendEmailToNewPass(volunter: Volunteer) {
 
     await transporter.transporter.sendMail({
         from: `<${process.env.NODEMAILER_USER}>`,
-        to: "alexandrebruno013@gmail.com",
+        to: "gabrielmina118@gmail.com",
         subject: `Informações de um novo Voluntário`,
         text: `
             '${volunter.getName()}', 
