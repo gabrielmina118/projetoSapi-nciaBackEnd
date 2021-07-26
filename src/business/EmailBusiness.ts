@@ -17,16 +17,16 @@ export default async function sendEmailToNewPass(volunter: Volunteer) {
         subject: `Informações de um novo Voluntário`,
         text: `
             '${volunter.getName()}', 
+            '${volunter.getPhone()}',
+            '${volunter.getEmail()}',
+            '${volunter.getCellphone()}', 
+            '${volunter.getDepartment()}',
             '${volunter.getObs()}',
             '${volunter.getBirthday()}',
             '${volunter.getCpf()}',
             '${volunter.getRg()}',
             '${volunter.getExpeditor()}',
-            '${volunter.getAddress()}',
-            '${volunter.getEmail()}',
-            '${volunter.getCellphone()}',
-            '${volunter.getPhone()}',
-            '${volunter.getDepartment()}',
+            '${volunter.getAddress()}',                      
             '${volunter.getHours()}',
             '${volunter.getAcordo1()}',
             '${volunter.getAcordo2()}',
@@ -35,15 +35,15 @@ export default async function sendEmailToNewPass(volunter: Volunteer) {
             `,
         html: `
             Nome: '${volunter.getName()}' <br><br> 
+            Email: '${volunter.getEmail()}'<br><br>
+            Telefone: '${volunter.getCellphone()}'<br><br>
+            Celular: '${volunter.getPhone()}'<br><br>
+            Endereço: '${volunter.getAddress()}'<br><br>       
             Observação: '${volunter.getObs()}'<br><br>
             Aniversário: '${volunter.getBirthday()}'<br><br>
             Cpf: '${volunter.getCpf()}'<br><br>
             RG: '${volunter.getRg()}'<br><br>
-            Orgão Expedidor: '${volunter.getExpeditor()}'<br><br>
-            Endereço: '${volunter.getAddress()}'<br><br>
-            Email: '${volunter.getEmail()}'<br><br>
-            Telefone: '${volunter.getCellphone()}'<br><br>
-            Celular: '${volunter.getPhone()}'<br><br>
+            Orgão Expedidor: '${volunter.getExpeditor()}'<br><br>               
             Departamento do voluntário: '${volunter.getDepartment()}'<br><br>
             Tem de dedicar ao Sapiência: '${volunter.getHours()}'<br><br>
             Acordo 1: '${volunter.getAcordo1()}'<br><br>
