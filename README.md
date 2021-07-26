@@ -4,6 +4,9 @@
 ## Link do repositório do Front-end
 https://github.com/gabrielmina118/projetoSapi-ncia-FrontEnd
 
+## Link do deploy no Heroku
+projeto-sapiencia-back-end.herokuapp.com
+
 ## Primeiros Passos
 Clonar este repositório.
 
