@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "my-sql-setup": "tsc && node ./build/migration/mySqlSetup.js",
+    
     "start": "tsc && node ./build/index.js",
     "build": "tsc",
     "dev-start": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts",
