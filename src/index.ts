@@ -17,4 +17,3 @@ app.listen(process.env.PORT || 3003, () => {
   console.log(`Servidor rodando em http://localhost:3003`);
 });
 
-// "my-sql-setup": "tsc && node ./build/migration/mySqlSetup.js",
